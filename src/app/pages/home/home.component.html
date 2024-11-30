@@ -1,0 +1,20 @@
+<div
+  class="relative z-10 flex flex-col items-center justify-center h-full text-white"
+>
+  <h1 class="text-6xl font-bold mb-4">Galactic Lottery</h1>
+  <p class="text-2xl mb-8">Entrez dans l'univers de la chance !</p>
+  <div class="flex space-x-4">
+    <a
+      [routerLink]="['/login']"
+      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition"
+    >
+      Connexion
+    </a>
+    <a
+      [routerLink]="['/register']"
+      class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition"
+    >
+      Inscription
+    </a>
+  </div>
+</div>

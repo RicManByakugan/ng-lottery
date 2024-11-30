@@ -1,0 +1,68 @@
+<div
+  class="relative z-10 flex flex-col items-center justify-center h-screen text-white bg-cover bg-center"
+>
+  <h1 class="text-6xl font-extrabold mb-6 tracking-wide">Rejoignez-nous</h1>
+  <p class="text-lg mb-12 text-center opacity-80">
+    Créez un compte pour commencer votre aventure galactique
+  </p>
+
+  <div class="bg-white bg-opacity-10 rounded-lg shadow-lg p-8 w-96">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Créer un compte</h2>
+    <form (ngSubmit)="onRegister()" #registerForm="ngForm">
+      <div class="relative group mb-6">
+        <input
+          type="email"
+          placeholder="Email"
+          [(ngModel)]="email"
+          name="email"
+          class="w-full border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-0 text-lg pb-2"
+          required
+        />
+        <span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-focus-within:w-full transition-all duration-300"
+        ></span>
+      </div>
+
+      <div class="relative group mb-8">
+        <input
+          type="password"
+          placeholder="Mot de passe"
+          [(ngModel)]="password"
+          name="password"
+          class="w-full border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-0 text-lg pb-2"
+          required
+        />
+        <span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-focus-within:w-full transition-all duration-300"
+        ></span>
+      </div>
+
+      <div class="relative group mb-8">
+        <input
+          type="password"
+          placeholder="Confirmer le mot de passe"
+          [(ngModel)]="password_confirm"
+          name="password"
+          class="w-full border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-0 text-lg pb-2"
+          required
+        />
+        <span
+          class="absolute bottom-0 left-0 w-0 h-0.5 bg-green-500 group-focus-within:w-full transition-all duration-300"
+        ></span>
+      </div>
+
+      <button
+        type="submit"
+        class="mt-8 flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300"
+      >
+        S'inscrire
+      </button>
+    </form>
+  </div>
+  <p class="mt-8 text-sm opacity-75">
+    Déjà un compte ?
+    <a routerLink="/login" class="text-blue-500 hover:underline">
+      Connectez-vous
+    </a>
+  </p>
+</div>

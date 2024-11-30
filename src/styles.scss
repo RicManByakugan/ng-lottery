@@ -1,1 +1,56 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle, #000428, #004e92);
+  color: white;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+input {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid white;
+  background: transparent;
+  color: white;
+  padding: 10px 0;
+  font-size: 1rem;
+  caret-color: white;
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #007bff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+button svg {
+  margin-left: 10px;
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,8 @@
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1; /* Derrière les autres éléments */
+  pointer-events: none; /* Désactive les interactions */
+  background: radial-gradient(circle, #000428, #004e92); /* Dégradé galaxie */
+}
