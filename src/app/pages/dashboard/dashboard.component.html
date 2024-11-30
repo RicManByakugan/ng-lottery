@@ -1,0 +1,52 @@
+<div class="relative z-10 bg-transparent">
+  <nav
+    class="mt-5 mb-5 text-white text-center flex flex-col items-center space-y-8"
+  >
+    <h1 class="text-4xl font-extrabold mb-0 tracking-wide">Galactic Lottery</h1>
+
+    <ul class="flex space-x-6 text-lg">
+      <li>
+        <a
+          [routerLink]="['/dashboard/kingcoins']"
+          routerLinkActive="text-yellow-300 hover:text-yellow-400"
+        >
+          KingCoins
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/dashboard/lottery']"
+          routerLinkActive="text-yellow-300 hover:text-yellow-400"
+        >
+          Lotterie
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/dashboard/draw']"
+          routerLinkActive="text-yellow-300 hover:text-yellow-400"
+        >
+          Tirage
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/dashboard/winning']"
+          routerLinkActive="text-yellow-300 hover:text-yellow-400"
+        >
+          Gains
+        </a>
+      </li>
+      <li>
+        <a
+          [routerLink]="['/dashboard/shop']"
+          routerLinkActive="text-yellow-300 hover:text-yellow-400"
+        >
+          Boutique
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <router-outlet />
+</div>

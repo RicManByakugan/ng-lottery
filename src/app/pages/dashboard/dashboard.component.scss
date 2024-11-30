@@ -1,0 +1,12 @@
+nav a {
+  @apply text-lg hover:underline transition-colors duration-300;
+}
+
+nav a.router-link-active {
+  @apply text-yellow-400 font-semibold;
+}
+
+
+.mt-5 {
+  margin-top: 50px;
+}
