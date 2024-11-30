@@ -1,1 +1,107 @@
-<p>lottery works!</p>
+<div
+  class="mt-5 relative z-10 flex flex-col items-center justify-center h-full text-white"
+>
+  <div class="flex space-x-4">
+    <button
+      (click)="switchMenu()"
+      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition"
+    >
+      Achat loterie
+    </button>
+    <button
+      (click)="switchMenu()"
+      class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition"
+    >
+      Solde loterie
+    </button>
+  </div>
+
+  <div
+    *ngIf="menu"
+    class="mt-5 bg-white bg-opacity-10 rounded-lg shadow-lg p-8 w-96"
+  >
+    <h2 class="text-2xl font-semibold mb-6 text-center">
+      Acheter un billet de loterie
+    </h2>
+    <form (ngSubmit)="buyLotteryTicket()" #lotteryForm="ngForm">
+      <div class="mb-4" *ngIf="nextStep">
+        <label class="block text-sm font-bold mb-3 text-center"
+          >Choisissez 5 numéros (1-50)</label
+        >
+        <div class="grid grid-cols-5 gap-2">
+          <input
+            *ngFor="let number of lotteryData.numbers; let i = index"
+            type="number"
+            [name]="'number' + i"
+            [(ngModel)]="lotteryData.numbers[i]"
+            min="1"
+            max="50"
+            placeholder="{{ i + 1 }}"
+            required
+            class="border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-0 text-lg pb-2"
+          />
+        </div>
+        <p class="text-red-500 mt-2" *ngIf="errorMessageNumbers">
+          {{ errorMessageNumbers }}
+        </p>
+      </div>
+      <div class="mb-4" *ngIf="!nextStep">
+        <label class="block text-sm font-bold mb-3 text-center"
+          >Choisissez 2 étoiles (1-12)</label
+        >
+        <div class="grid grid-cols-2 gap-2">
+          <input
+            *ngFor="let star of lotteryData.stars; let i = index"
+            type="number"
+            [name]="'star' + i"
+            [(ngModel)]="lotteryData.stars[i]"
+            min="1"
+            max="12"
+            placeholder="{{ i + 1 }}"
+            required
+            class="border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-0 text-lg pb-2"
+          />
+        </div>
+        <p class="text-red-500 mt-2" *ngIf="errorMessageStars">
+          {{ errorMessageStars }}
+        </p>
+      </div>
+      <p class="text-red-500 text-center mb-4" *ngIf="globalErrorMessage">
+        {{ globalErrorMessage }}
+      </p>
+      <button
+        *ngIf="nextStep"
+        (click)="switchMenuNext()"
+        type="button"
+        class="mt-4 w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300"
+      >
+        Suivant
+      </button>
+      <button
+        *ngIf="!nextStep"
+        type="submit"
+        [disabled]="!lotteryForm.form.valid"
+        class="mt-4 w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300"
+      >
+        Acheter un billet (40 KC)
+      </button>
+
+      <button
+        *ngIf="!nextStep"
+        (click)="switchMenuNext()"
+        type="button"
+        class="mt-4 w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300"
+      >
+        Retour
+      </button>
+    </form>
+  </div>
+
+  <div
+    *ngIf="!menu"
+    class="mt-5 bg-white bg-opacity-10 rounded-lg shadow-lg p-8 w-96"
+  >
+    <h2 class="text-2xl font-semibold mb-6 text-center">Solde Loterie</h2>
+    <h1 class="text-9xl font-extrabold mb-6 tracking-wide text-center">0</h1>
+  </div>
+</div>
