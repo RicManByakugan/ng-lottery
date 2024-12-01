@@ -45,7 +45,7 @@ export class RegisterComponent {
         if (response.email) {
           this.loginStatus = 'Inscription réussi';
           this.resultMessage = '';
-          this.router.navigate(['/login'])
+          window.location.reload();
         } else {
           this.resultMessage = response.message;
         }
