@@ -8,12 +8,14 @@ import { LotteryComponent } from './pages/dashboard/lottery/lottery.component';
 import { DrawComponent } from './pages/dashboard/draw/draw.component';
 import { WinningComponent } from './pages/dashboard/winning/winning.component';
 import { ShopComponent } from './pages/dashboard/shop/shop.component';
+import { AuthGuard } from './guard/auth.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: 'kingcoins', component: KingcoinsComponent },
       { path: 'lottery', component: LotteryComponent },
@@ -22,7 +24,8 @@ export const routes: Routes = [
       { path: 'shop', component: ShopComponent },
       { path: '', redirectTo: 'kingcoins', pathMatch: 'full' },
     ],
-   },
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: '**', redirectTo: '' },
 ];

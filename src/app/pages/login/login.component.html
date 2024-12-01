@@ -50,7 +50,10 @@
         {{ isPasswordStep ? "Se connecter" : "Suivant" }}
       </button>
     </form>
+    <p class="text-red-500" *ngIf="resultMessage">{{ resultMessage }}</p>
+    <p *ngIf="loginStatus">{{ loginStatus }}</p>
     <button
+      type="button"
       *ngIf="isPasswordStep"
       (click)="isPasswordStep = false"
         class="mt-8 flex items-center justify-center w-full bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-bold py-3 px-6 rounded-lg shadow-md transform hover:scale-105 transition-all duration-300"

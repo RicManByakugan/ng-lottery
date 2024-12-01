@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,11 +13,17 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 export class DashboardComponent {
   currentRoute = '';
 
-  constructor(private router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
     this.router.events.subscribe(() => {
       const url = this.router.url;
       this.currentRoute = this.getRouteName(url);
     });
+  }
+  logout(): void {
+    if (confirm("Se deconnecter du jeu ?")) {
+      this.authService.logout();
+      this.router.navigate(['/login']);
+    }
   }
 
   private getRouteName(url: string): string {

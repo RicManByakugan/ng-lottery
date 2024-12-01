@@ -1,7 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { LotteryService } from '../../service/lottery.service';
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,17 @@ import { RouterLink } from '@angular/router';
 export class LoginComponent {
   email: string = '';
   password: string = '';
+  loginStatus: string = '';
   isPasswordStep: boolean = false;
+  resultMessage: string = '';
+
+  constructor(private lotteryService: LotteryService, private authService: AuthService, private router: Router) {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/dashboard/kingcoins']);
+    }else{
+      this.router.navigate(['/login']);
+    }
+  }
 
   onSubmit() {
     if (this.isPasswordStep) {
@@ -24,11 +36,33 @@ export class LoginComponent {
   }
 
   submitLogin() {
+    if (!this.email || !this.password) {
+      this.resultMessage = 'Please fill in all fields';
+      return;
+    }
     const userCredentials = {
       email: this.email,
       password: this.password,
     };
-
-    console.log('Utilisateur connecté:', userCredentials);
+    this.loginStatus = 'Connexion en cours ...';
+    this.resultMessage = '';
+    this.lotteryService
+      .login(userCredentials.email, userCredentials.password)
+      .subscribe(
+        (response) => {
+          this.loginStatus = '';
+          if (response.access_token) {
+            localStorage.setItem('token', response.access_token);
+            this.resultMessage = '';
+            window.location.reload();
+          } else {
+            this.resultMessage = 'Invalid email or password';
+          }
+        },
+        (err) => {
+          this.loginStatus = '';
+          this.resultMessage = err.error.message;
+        }
+      );
   }
 }
