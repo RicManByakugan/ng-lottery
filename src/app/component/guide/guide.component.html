@@ -1,0 +1,37 @@
+<div
+  class="absolute top-4 right-4 w-12 h-12 flex items-center justify-center rounded-full bg-blue-500 text-white cursor-pointer hover:bg-blue-600 shadow-lg"
+  (click)="toggleModal()"
+>
+  ?
+</div>
+
+<div
+  *ngIf="isModalOpen"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+>
+  <div class="bg-white rounded-lg p-6 w-100 text-gray-900">
+    <h2 class="text-2xl font-bold mb-4">Guide pour jouer</h2>
+    <p class="mb-4">
+      Bienvenue dans la salle de jeux ! Voici les étapes pour participer :
+    </p>
+    <ol class="list-decimal list-inside mb-4">
+      <li>Créez un compte utilisateur.</li>
+      <li>
+        Achetez des Kingcoins (1 Kingcoin = 0,05€) avec un minimum de 40 KC.
+      </li>
+      <li>
+        Achetez un billet de loterie pour 40 KC, avec un maximum de 20 billets.
+      </li>
+      <li>Choisissez 5 numéros (1-50) et 2 étoiles (1-12).</li>
+      <li>Participez au tirage aléatoire.</li>
+      <li>Consultez les résultats et vos gains selon le barème.</li>
+      <li>Convertissez vos gains en cadeaux ou en euros (0,04 €/KC).</li>
+    </ol>
+    <button
+      class="w-full py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+      (click)="toggleModal()"
+    >
+      Fermer
+    </button>
+  </div>
+</div>

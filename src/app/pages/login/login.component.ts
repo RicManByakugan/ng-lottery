@@ -4,11 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { LotteryService } from '../../service/lottery.service';
 import { AuthService } from '../../service/auth.service';
+import { GuideComponent } from '../../component/guide/guide.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormsModule, GuideComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
 })
@@ -19,7 +20,11 @@ export class LoginComponent {
   isPasswordStep: boolean = false;
   resultMessage: string = '';
 
-  constructor(private lotteryService: LotteryService, private authService: AuthService, private router: Router) {
+  constructor(
+    private lotteryService: LotteryService,
+    private authService: AuthService,
+    private router: Router
+  ) {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/dashboard/kingcoins']);
     }

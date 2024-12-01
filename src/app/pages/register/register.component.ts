@@ -4,11 +4,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { LotteryService } from '../../service/lottery.service';
 import { AuthService } from '../../service/auth.service';
+import { GuideComponent } from '../../component/guide/guide.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormsModule, GuideComponent],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
