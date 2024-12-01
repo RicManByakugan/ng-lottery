@@ -10,12 +10,12 @@
     </div>
   </div>
   <div class="absolute top-5 right-5 flex items-centerbox w-96 lg:block hidden">
-    <div class="box">
+    <div class="box" *ngIf="user">
       <div class="inner">
-        <span>{{ currentRoute }}</span>
+        <span>{{ user.email }}</span>
       </div>
       <div class="inner">
-        <span>{{ currentRoute }}</span>
+        <span>{{ user.email }}</span>
       </div>
     </div>
   </div>

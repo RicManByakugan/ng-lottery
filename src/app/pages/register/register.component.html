@@ -58,6 +58,8 @@
         S'inscrire
       </button>
     </form>
+    <p class="text-red-500" *ngIf="resultMessage">{{ resultMessage }}</p>
+    <p *ngIf="loginStatus">{{ loginStatus }}</p>
   </div>
   <p class="mt-8 text-sm opacity-75">
     Déjà un compte ?

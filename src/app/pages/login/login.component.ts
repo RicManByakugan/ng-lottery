@@ -22,8 +22,6 @@ export class LoginComponent {
   constructor(private lotteryService: LotteryService, private authService: AuthService, private router: Router) {
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/dashboard/kingcoins']);
-    }else{
-      this.router.navigate(['/login']);
     }
   }
 
