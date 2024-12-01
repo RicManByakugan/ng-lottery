@@ -1,4 +1,25 @@
 <div class="relative z-10 bg-transparent">
+  <div class="absolute top-5 left-5 flex items-centerbox w-96 lg:block hidden">
+    <div class="box">
+      <div class="inner">
+        <span>{{ currentRoute }}</span>
+      </div>
+      <div class="inner">
+        <span>{{ currentRoute }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="absolute top-5 right-5 flex items-centerbox w-96 lg:block hidden">
+    <div class="box">
+      <div class="inner">
+        <span>{{ currentRoute }}</span>
+      </div>
+      <div class="inner">
+        <span>{{ currentRoute }}</span>
+      </div>
+    </div>
+  </div>
+
   <nav
     class="mt-5 mb-5 text-white text-center flex flex-col items-center space-y-8"
   >
@@ -37,14 +58,14 @@
           Gains
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a
           [routerLink]="['/dashboard/shop']"
           routerLinkActive="text-yellow-300 hover:text-yellow-400"
         >
           Boutique
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
 

@@ -1,1 +1,91 @@
-<p>winning works!</p>
+<div
+  class="mt-5 relative z-10 flex flex-col items-center justify-center h-full text-white"
+>
+  <div class="flex space-x-4">
+    <button
+      (click)="toggleNavItem()"
+      class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition"
+    >
+      Resultat
+    </button>
+    <button
+      (click)="toggleNavItem()"
+      class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition"
+    >
+      Gains
+    </button>
+  </div>
+
+  <div *ngIf="navItem1" class="flex justify-center gap-4 mt-5">
+    <div class="bg-white bg-opacity-10 rounded-lg shadow-lg p-8 w-96">
+      <h2 class="text-2xl font-semibold mb-6 text-center">Nombre</h2>
+      <div class="grid grid-cols-5 gap-2">
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+      </div>
+      <hr>
+      <h2 class="mt-5 text-2xl font-semibold mb-6 text-center">Tirage</h2>
+      <div class="grid grid-cols-5 gap-2">
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+      </div>
+    </div>
+    <div class="bg-white bg-opacity-10 rounded-lg shadow-lg p-8 w-96">
+      <h2 class="text-2xl font-semibold mb-6 text-center">Etoile</h2>
+      <div class="grid grid-cols-2 gap-2">
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+      </div>
+      <hr>
+      <h2 class="mt-5 text-2xl font-semibold mb-6 text-center">Tirage</h2>
+      <div class="grid grid-cols-2 gap-2">
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+        <h1 class="text-5xl font-extrabold mb-6 tracking-wide text-center">
+          0
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="navItem2"
+    class="mt-5 bg-white bg-opacity-10 rounded-lg shadow-lg p-8 w-96"
+  >
+    <h2 class="text-2xl font-semibold mb-6 text-center">Votre Gain</h2>
+    <h1 class="text-9xl font-extrabold mb-6 tracking-wide text-center">
+      0
+    </h1>
+  </div>
+</div>
