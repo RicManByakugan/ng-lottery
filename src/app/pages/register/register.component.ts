@@ -9,7 +9,13 @@ import { GuideComponent } from '../../component/guide/guide.component';
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule, CommonModule, FormsModule, GuideComponent],
+  imports: [
+    RouterLink,
+    ReactiveFormsModule,
+    CommonModule,
+    FormsModule,
+    GuideComponent,
+  ],
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss',
 })
@@ -30,7 +36,8 @@ export class RegisterComponent {
     }
   }
 
-  onRegister() {
+  onRegister(event: any) {
+    event.preventDefault();
     if (!this.email || !this.password || !this.password_confirm) {
       this.resultMessage = 'Tous les champs doivent être remplis.';
       return;

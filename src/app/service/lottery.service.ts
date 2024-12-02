@@ -38,6 +38,11 @@ export class LotteryService {
     return this.http.post(`${this.baseUrl}/kingcoins/buy`, { amount }, { headers });
   }
 
+  getKingCoins(): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.get(`${this.baseUrl}/kingcoins/balance`, { headers });
+  }
+
   buyTicket(
     numbers: number[],
     stars: number[],

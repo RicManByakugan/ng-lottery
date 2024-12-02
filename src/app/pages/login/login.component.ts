@@ -30,7 +30,8 @@ export class LoginComponent {
     }
   }
 
-  onSubmit() {
+  onSubmit(event: any) {
+    event.preventDefault();
     if (this.isPasswordStep) {
       this.submitLogin();
     } else {

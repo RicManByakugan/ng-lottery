@@ -45,7 +45,7 @@
       </button>
     </form>
     <p class="text-red-500" *ngIf="resultMessage">{{ resultMessage }}</p>
-    <p *ngIf="loginStatus">{{ loginStatus }}</p>
+    <p class="mt-2" *ngIf="loginStatus">{{ loginStatus }}</p>
   </div>
 
   <div
@@ -53,8 +53,8 @@
     class="mt-5 bg-white bg-opacity-10 rounded-lg shadow-lg p-8 w-96"
   >
     <h2 class="text-2xl font-semibold mb-6 text-center">Solde KingCoins</h2>
-    <h1 class="text-9xl font-extrabold mb-6 tracking-wide text-center">
-      0
+    <h1 class="text-9xl font-extrabold mb-6 tracking-wide text-center" *ngIf="dataUser">
+      {{ dataUser.kingCoins }}
     </h1>
   </div>
 </div>
