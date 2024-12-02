@@ -8,8 +8,9 @@ import { environment } from '../../environment/environment';
 })
 export class LotteryService {
   // private baseUrl = 'http://localhost:3000';
-  // private baseUrl = 'https://lottery-app-gm0w.onrender.com';
-  private baseUrl = environment
+  private baseUrl = 'https://lottery-app-gm0w.onrender.com';
+  // private baseUrl = environment
+
   private token = localStorage.getItem('token') as string;
 
   constructor(private http: HttpClient) {}
