@@ -2,18 +2,17 @@
   class="mt-5 relative z-10 flex flex-col items-center justify-center h-full text-white"
 >
   <div class="flex space-x-4">
-    <button
-      (click)="switchMenu()"
+    <!-- <button
       class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition"
     >
       Achat loterie
-    </button>
-    <button
+    </button> -->
+    <!-- <button
       (click)="switchMenu()"
       class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg shadow-lg transition"
     >
       Solde loterie
-    </button>
+    </button> -->
   </div>
 
   <div
@@ -69,6 +68,9 @@
       <p class="text-red-500 text-center mb-4" *ngIf="globalErrorMessage">
         {{ globalErrorMessage }}
       </p>
+      <p class="text-red-500 text-center mb-4" *ngIf="messageResult">
+        {{ messageResult }}
+      </p>
       <button
         *ngIf="nextStep"
         (click)="switchMenuNext()"
@@ -97,11 +99,11 @@
     </form>
   </div>
 
-  <div
+  <!-- <div
     *ngIf="!menu"
     class="mt-5 bg-white bg-opacity-10 rounded-lg shadow-lg p-8 w-96"
   >
     <h2 class="text-2xl font-semibold mb-6 text-center">Solde Loterie</h2>
     <h1 class="text-9xl font-extrabold mb-6 tracking-wide text-center">0</h1>
-  </div>
+  </div> -->
 </div>

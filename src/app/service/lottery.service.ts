@@ -46,14 +46,18 @@ export class LotteryService {
   buyTicket(
     numbers: number[],
     stars: number[],
-    drawId: number
   ): Observable<any> {
     const headers = this.getAuthHeaders();
     return this.http.post(
       `${this.baseUrl}/lottery/buy`,
-      { numbers, stars, drawId },
+      { numbers, stars },
       { headers }
     );
+  }
+
+  getLotteryBalance(): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.get(`${this.baseUrl}/lottery/balance`, { headers });
   }
 
   getLastDraw(): Observable<any> {

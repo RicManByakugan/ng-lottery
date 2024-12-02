@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LotteryService } from '../../../service/lottery.service';
 
 @Component({
   selector: 'app-lottery',
@@ -20,6 +21,9 @@ export class LotteryComponent {
   errorMessageNumbers: string | null = null;
   errorMessageStars: string | null = null;
   globalErrorMessage: string | null = null;
+  messageResult: string | null = null;
+
+  constructor(private lotteryService: LotteryService) {}
 
   switchMenu() {
     this.menu = !this.menu;
@@ -27,7 +31,6 @@ export class LotteryComponent {
   switchMenuNext() {
     this.nextStep = !this.nextStep;
   }
-
 
   buyLotteryTicket() {
     this.errorMessageNumbers = null;
@@ -49,7 +52,22 @@ export class LotteryComponent {
       this.globalErrorMessage = 'Veuillez corriger les erreurs ci-dessus.';
       return;
     }
-    console.log('Billet acheté avec les données suivantes :', this.lotteryData);
-    this.globalErrorMessage = 'Votre billet a été acheté avec succès !';
+
+    this.lotteryService.buyTicket(numbers, stars).subscribe(
+      (res) => {
+        if (res.updatedUser) {
+          this.messageResult = 'Achat effectuer, Voir tirage maintenant';
+          setTimeout(() => {
+            this.messageResult = null;
+          }, 1200);
+        } else {
+          this.globalErrorMessage = res.message;
+        }
+      },
+      (err) => {
+        this.messageResult = null;
+        this.globalErrorMessage = err.error.message;
+      }
+    );
   }
 }
