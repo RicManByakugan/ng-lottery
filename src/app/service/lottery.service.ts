@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LotteryService {
-  private baseUrl = 'http://localhost:3000';
+  // private baseUrl = 'http://localhost:3000';
   // private baseUrl = 'https://lottery-app-gm0w.onrender.com';
+  private baseUrl = environment
   private token = localStorage.getItem('token') as string;
 
   constructor(private http: HttpClient) {}
@@ -29,6 +31,11 @@ export class LotteryService {
   getUserDetails(): Observable<any> {
     const headers = this.getAuthHeaders();
     return this.http.get(`${this.baseUrl}/auth/user`, { headers });
+  }
+
+  buyKingCoins(amount: number): Observable<any> {
+    const headers = this.getAuthHeaders();
+    return this.http.post(`${this.baseUrl}/kingcoins/buy`, { amount }, { headers });
   }
 
   buyTicket(

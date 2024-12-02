@@ -23,12 +23,13 @@
     <h2 class="text-2xl font-semibold mb-6 text-center">
       Acheter des KingCoins
     </h2>
-    <form>
+    <form (ngSubmit)="onSubmit($event)" #loginForm="ngForm">
       <div class="relative group mb-6">
         <input
           type="number"
           placeholder="Montant"
           name="number"
+          [(ngModel)]="amount"
           class="w-full border-b-2 border-gray-400 bg-transparent text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-0 text-lg pb-2"
           required
         />
@@ -43,6 +44,8 @@
         Acheter
       </button>
     </form>
+    <p class="text-red-500" *ngIf="resultMessage">{{ resultMessage }}</p>
+    <p *ngIf="loginStatus">{{ loginStatus }}</p>
   </div>
 
   <div
