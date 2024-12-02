@@ -38,6 +38,7 @@ export class LotteryComponent {
     this.globalErrorMessage = null;
     const numbers = this.lotteryData.numbers;
     const stars = this.lotteryData.stars;
+    this.messageResult = "Traitement en cours ..."
     if (numbers.some((num) => num === null || num < 1 || num > 50)) {
       this.errorMessageNumbers = 'Veuillez entrer des numéros entre 1 et 50.';
     } else if (new Set(numbers).size !== 5) {
@@ -59,7 +60,7 @@ export class LotteryComponent {
           this.messageResult = 'Achat effectuer, Voir tirage maintenant';
           setTimeout(() => {
             this.messageResult = null;
-          }, 1200);
+          }, 3000);
         } else {
           this.globalErrorMessage = res.message;
         }

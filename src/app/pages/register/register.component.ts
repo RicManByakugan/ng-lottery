@@ -46,7 +46,7 @@ export class RegisterComponent {
       this.resultMessage = 'Les mots de passe ne sont pas identiques.';
       return;
     }
-    this.loginStatus = 'Connexion en cours ...';
+    this.loginStatus = 'Inscription en cours ...';
     this.lotteryService.register(this.email, this.password).subscribe(
       (response) => {
         this.loginStatus = '';
